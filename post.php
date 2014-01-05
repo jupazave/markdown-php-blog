@@ -26,6 +26,9 @@ foreach ($title as $tit) {
 
 $data['title'] = $title;
 
+$data['js'] = array();
+$data['css'] = array();
+
 $view = new Template("main_template",$data);
 $view->render();
 

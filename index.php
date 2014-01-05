@@ -16,12 +16,13 @@ function scan_dir($dir) {
   $files = array_keys($files);
 
   for ($i=0; $i < count($files); $i++) { 
-    $files[$i] = str_replace(".md", "", $files[$i]);
+    $fileList[$i]['date'] = date ("d/m/o", filemtime($dir. $files[$i]));
+    $fileList[$i]['title'] = str_replace(".md", "", $files[$i]);
   }
 
 
 
-  return ($files) ? $files : false;
+  return ($fileList) ? $fileList : false;
 }
 
 
@@ -34,8 +35,8 @@ $files = scan_dir('./posts/');
 <?php foreach ($files as $file) : ?>
   <li>
 
-
-<a href="post.php?p=<?php echo $file ?>"><?php echo str_replace("-", " ", $file); ?></a></li>
+<?php echo $file['date'] ?>
+<a href="post.php?p=<?php echo $file['title'] ?>"><?php echo str_replace("-", " ", $file['title']); ?></a></li>
 
 <?php endforeach; ?>
 </ul>
