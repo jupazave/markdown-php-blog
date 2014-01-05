@@ -1,7 +1,9 @@
 <html>
 <head>
+    <meta charset="utf8">
   <title><?= $this->title; ?></title>
-  <meta charset="utf8">
+
+
 </head>
 <body>
 

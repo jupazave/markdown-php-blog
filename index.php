@@ -1,42 +1,22 @@
 <?php
-
-function scan_dir($dir) {
-  $ignored = array('.', '..', '.svn', '.htaccess');
-
-  $files = array();    
-  foreach (scandir($dir) as $file) {
-    if (in_array($file, $ignored)) continue;
-    
-    $files[$file] = filemtime($dir . '/' . $file);
-
-  }
-
-  arsort($files);
-
-  $files = array_keys($files);
-
-  for ($i=0; $i < count($files); $i++) { 
-    $fileList[$i]['date'] = date ("d/m/o", filemtime($dir. $files[$i]));
-    $fileList[$i]['title'] = str_replace(".md", "", $files[$i]);
-  }
-
-
-
-  return ($fileList) ? $fileList : false;
-}
-
+include('models/helper.php');
+include('models/theme.class.php');
+include('models/MyFile.class.php');
 
 $files = scan_dir('./posts/');
 
+$content =  "\t<ul>\n";
+
+foreach ($files as $file) {
+  $content .=  "\t\t<li>\n\t\t\t".$file->date." <a href=\"post.php?p=".$file->name."\">".$file->name."</a>\n\t\t</li>\n";
+}
+
+$content .=  "\t</ul>";
+
+$data['title'] = "Mi Blogh";
+$data['content'] = $content;
+
+$view = new Template("main_template",$data);
+$view->render();
 
 ?>
-<ul>
-
-<?php foreach ($files as $file) : ?>
-  <li>
-
-<?php echo $file['date'] ?>
-<a href="post.php?p=<?php echo $file['title'] ?>"><?php echo str_replace("-", " ", $file['title']); ?></a></li>
-
-<?php endforeach; ?>
-</ul>
