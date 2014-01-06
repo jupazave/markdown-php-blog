@@ -33,17 +33,17 @@
         <div class="containter">
 
             <div class="col-md-6 col-md-offset-3">
-                <h1><?= $this->title; ?></h1>
-                <ul class="list-group">
+                <h1 class="text-center"><?= $this->title; ?></h1>
+                <div class="list-group">
                     <?php foreach ($this->files as $file): ?>
-                    <a href="post.php?p=<?= $file->link?>">
-                        <li class="list-group-item">
+                    <a href="post.php?p=<?= $file->link?>" class="list-group-item">
+        
                             <span class="badge"><?= $file->date?></span>
                             <?= $file->name?>
-                        </li>
+
                     </a>
                 <?php endforeach; ?>
-                </ul>
+                </div>
             </div>
         </div>
         

@@ -1,4 +1,2 @@
-RewriteEngine on 
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.php -f 
-RewriteRule ^(.*)$ $1.php
+RewriteEngine On
+RewriteRule ^post/([^/]*)/?$ posts.php?p=$1 [L]    # Handle product requests
