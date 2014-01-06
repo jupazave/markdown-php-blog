@@ -11,8 +11,6 @@ if (!function_exists('scan_dir')) {
       if (in_array($ext, $acepted)){
         $files[$file] = filemtime($dir . '/' . $file);  
       }
-      
-      
 
     }
 

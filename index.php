@@ -14,10 +14,10 @@ foreach ($files as $file) {
 
 $content .=  "\t</ul>";
 
-$data['title'] = "Mi Blogh";
-$data['content'] = $content;
+$data['title'] = "Mi Blog";
+$data['files'] = $files;
 
-$view = new Template("main_template",$data);
+$view = new Template("index_template",$data);
 $view->render();
 
 ?>
