@@ -16,6 +16,5 @@ Dejo aquí el [código] para que le den una revisada.
 [Navegante]:http://navegantes.mx
 [Github]:http://github.com/jupazave
 [pregunta]:http://stackoverflow.com/questions/62617/whats-the-best-way-to-separate-php-code-and-html
-
 [código]:https://github.com/jupazave/markdown-php-blog
 [Saraguato Estudio]:https://www.facebook.com/media/set/?set=a.411947438907655.1073741842.244944605607940&type=1

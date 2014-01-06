@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        <base href="<?=get_base_url(); ?>">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?= $this->title; ?></title>
@@ -14,6 +15,7 @@
 
         <link rel="stylesheet" href="assets/css/bootstrap-flat.min.css">
         <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="posts/<?=$this->folder; ?>/post.css">
 
         <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -53,6 +55,9 @@
         <script src="assets/js/vendor/bootstrap.min.js"></script>
 
         <script src="assets/js/main.js"></script>
+        <script src="posts/<?=$this->folder; ?>/post.css"></script>
+
+
 
         <script>
             var _gaq=[['_setAccount','UA-46840731-1'],['_trackPageview']];

@@ -10,7 +10,7 @@ $post = str_replace("-", " ", $post);
 $data = array();
 
 
-if (!($fichero = file_get_contents('posts/' . $post . '.md', true))) {
+if (!($fichero = file_get_contents('posts/' . $post . '/post.md', true))) {
   header( 'Location: /' ) ;
 }
 
@@ -26,11 +26,7 @@ if($title->length != 1) {
   $data['title'] = $title->item(0)->textContent; 
 }
 
-
-
-//Aun no se de donde sacarlos
-$data['js'] = array(); 
-$data['css'] = array();
+$data['folder'] = $post;
 
 $view = new Template("post_template",$data);
 $view->render();

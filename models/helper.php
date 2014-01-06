@@ -2,13 +2,13 @@
 
 if (!function_exists('scan_dir')) {
   function scan_dir($dir) {
-    $acepted = array('md');
+    $ignored = array('md','.','..','index.html');
 
     $files = array();    
     foreach (scandir($dir) as $file) {
       $ext = pathinfo($dir.$file, PATHINFO_EXTENSION);
 
-      if (in_array($ext, $acepted)){
+      if (!in_array($ext, $ignored) && !in_array($file, $ignored) ){
         $files[$file] = filemtime($dir . '/' . $file);  
       }
 
@@ -39,4 +39,15 @@ if (!function_exists('scan_dir')) {
 
     return ($fileList) ? $fileList : false;
   }
- } ?>
+ } 
+
+if (!function_exists('get_base_url')) {
+  function get_base_url()
+  {
+    $base_url= ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+    $base_url .= "://".$_SERVER['HTTP_HOST'];
+    $base_url.= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+    return $base_url;
+  }
+}
+ ?>

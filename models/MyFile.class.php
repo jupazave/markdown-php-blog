@@ -1,6 +1,4 @@
 <?php 
-
-
 /**
 * Class for file descripction
 */
